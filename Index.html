@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complex Number Addition</title>
+    <style>
+        /* CSS for code box */
+        #code-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            overflow-x: auto;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Complex Number Addition</h2>
+
+    <!-- Aim -->
+    <h3>Aim:</h3>
+    <p>To perform addition of two complex numbers.</p>
+
+    <!-- Algorithm -->
+    <h3>Algorithm:</h3>
+    <ol>
+        <li>Define a class named "complex" with integer variables for real and imaginary parts.</li>
+        <li>Define a default constructor and a parameterized constructor to initialize the complex numbers.</li>
+        <li>Define a method "addcomplex" to add two complex numbers.</li>
+        <li>In the main class "complexmain", create instances of the complex class and add two complex numbers.</li>
+        <li>Display the result of the addition.</li>
+    </ol>
+
+    <!-- Program -->
+    <h3>Program:</h3>
+    <div id="code-box">
+        <pre>
+            <code class="language-java">
+                import java.io.*;
+
+                class complex {
+                    int real, img;
+
+                    complex() {}
+
+                    complex(int Treal, int Timg) {
+                        real = Treal;
+                        img = Timg;
+                    }
+
+                    complex addcomplex(complex c1, complex c2) {
+                        complex ctemp = new complex();
+                        ctemp.real = c1.real + c2.real;
+                        ctemp.img = c1.img + c2.img;
+                        return ctemp;
+                    }
+                }
+
+                class complexmain {
+                    public static void main(String args[]) throws IOException {
+                        complex c1 = new complex(4, 8);
+                        complex c2 = new complex(5, 7);
+                        complex c3 = new complex();
+                        c3 = c3.addcomplex(c1, c2);
+                        
+                        // Output in red color
+                        System.out.println("\u001B[31mReal value: " + c3.real);
+                        System.out.println("Imag value: " + c3.img);
+                        System.out.println("Complex addition: " + c3.real + "+i" + c3.img + "\u001B[0m"); // Reset color after output
+                    }
+                }
+            </code>
+        </pre>
+    </div>
+
+    <!-- Copy Code Button -->
+    <button onclick="copyCode()">Copy Code</button>
+
+    <!-- Output -->
+    <h3>Output:</h3>
+    <div id="output">
+        <!-- Output will be displayed here -->
+    </div>
+
+    <!-- JavaScript for copying code to clipboard -->
+    <script>
+        function copyCode() {
+            var codeBox = document.getElementById("code-box");
+            var range = document.createRange();
+            range.selectNode(codeBox);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("Code copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
